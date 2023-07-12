@@ -12,8 +12,8 @@ Ejecuta `npm start` para iniciar el servidor en desarolla y en el navegador ve a
 
 ## Glosario de comandos
 
-`npm init @angular MyApp​` Inicia un nuevo proyecto de Angular con el nombre "myApp" utilizando el CLI de Angular.​
-`npm start` Inicia la aplicación Angular y lanza un servidor de desarrollo para que puedas verla en tu navegador.​.​
-`npm install​` Instala todas las dependencias del proyecto desde el archivo package.json, descargándolas de npm.​.​
-`ng generate component componentInline -s -t​` Genera un nuevo componente llamado componentInline. El flag -s indica que se creará una hoja de estilo para el componente, y -t indica que se generará un archivo de prueba para el componente.​
-`ng generate component componentName --skip-tests​` Genera un nuevo componente llamado componentName sin generar archivos de prueba para el componente..​
+`npm init @angular MyApp​` Inicia un nuevo proyecto de Angular con el nombre "myApp" utilizando el CLI de Angular.​ <br />
+`npm start` Inicia la aplicación Angular y lanza un servidor de desarrollo para que puedas verla en tu navegador.​ <br />
+`npm install​` Instala todas las dependencias del proyecto desde el archivo package.json, descargándolas de npm.​ <br />
+`ng generate component componentInline -s -t​` Genera un nuevo componente llamado componentInline. El flag -s indica que se creará una hoja de estilo para el componente, y -t indica que se generará un archivo de prueba para el componente.​ <br />
+`ng generate component componentName --skip-tests​` Genera un nuevo componente llamado componentName sin generar archivos de prueba para el componente.
