@@ -1,0 +1,31 @@
+<form>
+	<div class="row">
+		<div class="col-3">
+			<label for="name">Nombre</label>
+			<input
+				type="text"
+				name="name"
+				id="name"
+				placeholder="Nombre"
+				class="form-control"
+				[(ngModel)]="nameInput"
+			/>
+		</div>
+		<div class="col-3">
+			<label for="lastName">Nombre</label>
+			<input
+				type="text"
+				name="lastName"
+				id="lastName"
+				placeholder="Apellido"
+				class="form-control"
+				[(ngModel)]="lastNameInput"
+			/>
+		</div>
+		<div class="col">
+			<button class="btn btn-primary" (click)="addNewPerson()">
+				Agregar Persona
+			</button>
+		</div>
+	</div>
+</form>

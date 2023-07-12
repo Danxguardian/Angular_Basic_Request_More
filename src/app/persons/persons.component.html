@@ -1,0 +1,13 @@
+<h1>Aplicacion Listado Personas</h1>
+<div class="container">
+	<app-person-form (objectNewPerson)="addToPersons($event)" />
+	<hr />
+</div>
+
+<div class="container">
+	<app-person
+		*ngFor="let person of persons; let i = index"
+		[person]="person"
+		[index]="i"
+	/>
+</div>
