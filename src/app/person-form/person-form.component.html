@@ -8,11 +8,11 @@
 				id="name"
 				placeholder="Nombre"
 				class="form-control"
-				[(ngModel)]="nameInput"
+				#nameInputRef
 			/>
 		</div>
 		<div class="col-3">
-			<label for="lastName">Nombre</label>
+			<label for="lastName">Apellido</label>
 			<input
 				type="text"
 				name="lastName"
@@ -22,8 +22,22 @@
 				[(ngModel)]="lastNameInput"
 			/>
 		</div>
+		<div class="col-3">
+			<label for="example">Ejemplo</label>
+			<input
+				type="text"
+				name="example"
+				id="example"
+				placeholder="Nombre"
+				class="form-control"
+				#exampleInputRef
+			/>
+		</div>
 		<div class="col">
-			<button class="btn btn-primary" (click)="addNewPerson()">
+			<button
+				class="btn btn-primary"
+				(click)="addNewPerson(nameInputRef)"
+			>
 				Agregar Persona
 			</button>
 		</div>
