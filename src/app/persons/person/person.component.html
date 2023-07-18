@@ -1,0 +1,14 @@
+<div class="row text-start">
+	<div class="col">
+		{{ index + 1 }}: {{ person.name }} {{ person.lastName }}
+	</div>
+	<div class="col-2">
+		<button 
+			type="submit" 
+			class="btn btn-info" 
+			(click)="sendData()"
+		>
+			Editar
+		</button>
+	</div>
+</div>
