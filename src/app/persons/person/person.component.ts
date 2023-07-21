@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { Person } from "../../Models/person.model";
 import { PersonsService } from "../../Services/personsService.service";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: "app-person",
@@ -10,9 +11,9 @@ export class PersonComponent {
 	@Input() person: Person = new Person("", "");
 	@Input() index: number;
 
-	constructor(private personsService: PersonsService) {}
+	constructor(private router: Router) {}
 
-	sendData = () => {
-		this.personsService.personIndex.emit(this.index);
+	sendData = (index: number) => {
+		this.router.navigate(["persons", index]);
 	};
 }

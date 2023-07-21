@@ -1,6 +1,7 @@
+<h1>Formulario Persona</h1>
 <form #form="ngForm" (ngSubmit)="form.form.valid && addNewPerson()">
 	<div class="row">
-		<div class="col-3">
+		<div class="col">
 			<label for="name">Nombre</label>
 			<input
 				type="text"
@@ -12,7 +13,7 @@
 				required
 			/>
 		</div>
-		<div class="col-3">
+		<div class="col">
 			<label for="lastName">Apellido</label>
 			<input
 				type="text"
@@ -24,8 +25,16 @@
 				required
 			/>
 		</div>
-		<div class="col">
-			<button class="btn btn-primary" type="submit">+</button>
+		<div class="col-2 text-center align-self-center">
+			<button class="btn btn-primary mx-1" type="submit">+</button>
+			<button
+				*ngIf="index != null"
+				type="submit"
+				class="btn btn-danger"
+				(click)="deletePerson()"
+			>
+				-
+			</button>
 		</div>
 	</div>
 </form>

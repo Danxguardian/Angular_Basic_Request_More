@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
 import { Person } from "../../Models/person.model";
 import { PersonsService } from "../../Services/personsService.service";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
 	selector: "app-person-form",
@@ -10,20 +10,39 @@ import { Router } from "@angular/router";
 export class PersonFormComponent implements OnInit {
 	constructor(
 		private personsService: PersonsService,
-		private router: Router
+		private router: Router,
+		private route: ActivatedRoute
 	) {}
+
+	index: number;
+	nameInput: string = "";
+	lastNameInput: string = "";
+
 	ngOnInit(): void {
 		this.personsService.personIndex.subscribe((index: number) => {
 			alert("Se ha seleccionado el elemento " + index);
 		});
-	}
 
-	lastNameInput: string = "";
-	nameInput: string = "";
+		this.index = this.route.snapshot.params["id"];
+		if (this.index) {
+			let person: Person = this.personsService.findPerson(this.index);
+			this.nameInput = person.name;
+			this.lastNameInput = person.lastName;
+		}
+	}
 
 	addNewPerson = () => {
 		const newPerson = new Person(this.nameInput, this.lastNameInput);
-		this.personsService.addToPersons(newPerson);
+		if (this.index) {
+			this.personsService.editPerson(this.index, newPerson);
+		} else {
+			this.personsService.addToPersons(newPerson);
+		}
+		this.router.navigate(["persons"]);
+	};
+
+	deletePerson = () => {
+		this.personsService.deletePerson(this.index);
 		this.router.navigate(["persons"]);
 	};
 }
