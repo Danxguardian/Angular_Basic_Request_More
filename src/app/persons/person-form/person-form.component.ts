@@ -17,7 +17,7 @@ export class PersonFormComponent implements OnInit {
 	index: number;
 	nameInput: string = "";
 	lastNameInput: string = "";
-
+	status: string;
 	ngOnInit(): void {
 		this.personsService.personIndex.subscribe((index: number) => {
 			alert("Se ha seleccionado el elemento " + index);
@@ -29,6 +29,8 @@ export class PersonFormComponent implements OnInit {
 			this.nameInput = person.name;
 			this.lastNameInput = person.lastName;
 		}
+
+		this.status = this.route.snapshot.queryParams["status"];
 	}
 
 	addNewPerson = () => {
@@ -42,7 +44,9 @@ export class PersonFormComponent implements OnInit {
 	};
 
 	deletePerson = () => {
-		this.personsService.deletePerson(this.index);
-		this.router.navigate(["persons"]);
+		if (this.status === "active") {
+			this.personsService.deletePerson(this.index);
+			this.router.navigate(["persons"]);
+		}
 	};
 }

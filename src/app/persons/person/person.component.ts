@@ -1,6 +1,5 @@
 import { Component, Input } from "@angular/core";
 import { Person } from "../../Models/person.model";
-import { PersonsService } from "../../Services/personsService.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -14,6 +13,8 @@ export class PersonComponent {
 	constructor(private router: Router) {}
 
 	sendData = (index: number) => {
-		this.router.navigate(["persons", index]);
+		this.router.navigate(["persons", index], {
+			queryParams: { status: "active" },
+		});
 	};
 }
