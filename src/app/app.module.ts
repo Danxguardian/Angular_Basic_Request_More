@@ -10,6 +10,7 @@ import { PersonFormComponent } from
 import { LoggingService } from "./Services/loggingService.service";
 import { PersonsService } from "./Services/personsService.service";
 import { AppRoutingModule } from "./app-routing.module";
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
 	declarations: [
@@ -17,6 +18,7 @@ import { AppRoutingModule } from "./app-routing.module";
 		PersonsComponent,
 		PersonComponent,
 		PersonFormComponent,
+  ErrorComponent,
 	],
 	imports: [BrowserModule, FormsModule, AppRoutingModule],
 	providers: [LoggingService, PersonsService],
