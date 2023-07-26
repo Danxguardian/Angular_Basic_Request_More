@@ -19,10 +19,6 @@ export class PersonFormComponent implements OnInit {
 	lastNameInput: string = "";
 	status: string;
 	ngOnInit(): void {
-		this.personsService.personIndex.subscribe((index: number) => {
-			alert("Se ha seleccionado el elemento " + index);
-		});
-
 		this.index = this.route.snapshot.params["id"];
 		if (this.index) {
 			let person: Person = this.personsService.findPerson(this.index);
